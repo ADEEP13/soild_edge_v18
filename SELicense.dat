@@ -1,0 +1,65 @@
+FEATURE server_id sedemon 19.0 permanent uncounted F32812F5D717 \
+	HOSTID=ID=20061005 user_info=7330757468 ISSUER="UGS, Inc." \
+	ck=96 SN=7330757468@CS
+FEATURE SolidEdgeFeatureReco sedemon 19.0 permanent uncounted \
+	F2D13182A7D4 HOSTID=ID=20061005 ISSUER=xzwlyx ck=75 \
+	SN=7330757468@CS
+FEATURE SolidEdgeClassic sedemon 19.0 permanent uncounted \
+	B9509116FEB4 HOSTID=ID=20061005 ISSUER=xzwlyx ck=55 \
+	SN=7330757468@CS
+FEATURE SolidEdge sedemon 19.0 permanent uncounted 9F2CF7908896 \
+	HOSTID=ID=20061005 ISSUER=xzwlyx ck=55 SN=7330757468@CS
+FEATURE SolidEdgeXpresRoute sedemon 19.0 permanent uncounted \
+	855E8BDFC26A HOSTID=ID=20061005 ISSUER=xzwlyx ck=169 \
+	SN=7330757468@CS
+FEATURE SolidEdgeHandbook sedemon 19.0 permanent uncounted \
+	FE5E112AECF9 HOSTID=ID=20061005 ISSUER=xzwlyx ck=135 \
+	SN=7330757468@CS
+FEATURE SolidEdgeAdvancedPar sedemon 19.0 permanent uncounted \
+	7E31A90A0EE8 HOSTID=ID=20061005 ISSUER=xzwlyx ck=107 \
+	SN=7330757468@CS
+FEATURE SolidEdgeSheetmetal sedemon 19.0 permanent uncounted \
+	19155EAEECA2 HOSTID=ID=20061005 ISSUER=xzwlyx ck=160 \
+	SN=7330757468@CS
+FEATURE SolidEdgeXpand3D sedemon 19.0 permanent uncounted \
+	D37EE6302402 HOSTID=ID=20061005 ISSUER=xzwlyx ck=186 \
+	SN=7330757468@CS
+FEATURE SolidEdgeAssembly sedemon 19.0 permanent uncounted \
+	8C2048666114 HOSTID=ID=20061005 ISSUER=xzwlyx ck=80 \
+	SN=7330757468@CS
+FEATURE SolidEdgeManager sedemon 19.0 permanent uncounted \
+	74E9393F92E2 HOSTID=ID=20061005 ISSUER=xzwlyx ck=116 \
+	SN=7330757468@CS
+FEATURE SEDesignDrafting sedemon 19.0 permanent uncounted \
+	D9A539D30F17 HOSTID=ID=20061005 ISSUER=xzwlyx ck=97 \
+	SN=7330757468@CS
+FEATURE SEIDesignDrafting sedemon 19.0 permanent uncounted \
+	A9E2CF8345CD HOSTID=ID=20061005 ISSUER=xzwlyx ck=124 \
+	SN=7330757468@CS
+FEATURE SEWebPublisher sedemon 19.0 permanent uncounted 4E90C8E51A74 \
+	HOSTID=ID=20061005 ISSUER=xzwlyx ck=111 SN=7330757468@CS
+FEATURE SEWireHarness sedemon 19.0 permanent uncounted 2C53372F49AC \
+	HOSTID=ID=20061005 ISSUER=xzwlyx ck=139 SN=7330757468@CS
+FEATURE SEStandardParts sedemon 19.0 permanent uncounted 2BA6664397A3 \
+	HOSTID=ID=20061005 ISSUER=xzwlyx ck=131 SN=7330757468@CS
+FEATURE SEPipingComponents sedemon 19.0 permanent uncounted \
+	0ED68844B316 HOSTID=ID=20061005 ISSUER=xzwlyx ck=90 \
+	SN=7330757468@CS
+FEATURE SEMoldTooling sedemon 19.0 permanent uncounted F5AFAF95F87C \
+	HOSTID=ID=20061005 ISSUER=xzwlyx ck=167 SN=7330757468@CS
+FEATURE SEElectrodeDesign sedemon 19.0 permanent uncounted \
+	B8C627D81723 HOSTID=ID=20061005 ISSUER=xzwlyx ck=89 \
+	SN=7330757468@CS
+FEATURE SEVirtualStudioPlus sedemon 19.0 permanent uncounted \
+	6A6B72248C42 HOSTID=ID=20061005 ISSUER=xzwlyx ck=29 \
+	SN=7330757468@CS
+FEATURE SEInsightConnect sedemon 19.0 permanent uncounted \
+	1FB9DB9660EE HOSTID=ID=20061005 ISSUER=xzwlyx ck=134 \
+	SN=7330757468@CS
+FEATURE SolidEdgeInsight sedemon 19.0 permanent uncounted \
+	A025B00C1AE6 HOSTID=ID=20061005 ISSUER=xzwlyx ck=117 \
+	SN=7330757468@CS
+FEATURE SolidEdgeCatiaV4 sedemon 19.0 permanent uncounted \
+	CDDE89D082F4 HOSTID=ID=20061005 ISSUER=xzwlyx ck=161 \
+	SN=7330757468@CS
+

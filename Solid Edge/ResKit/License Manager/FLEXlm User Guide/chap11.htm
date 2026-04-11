@@ -1,0 +1,555 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0" />
+    <meta name="TEMPLATEBASE" content="DTemplate" />
+    <title>Troubleshooting Guide</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body>
+
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <table width="174" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+<a href="TOC.htm"><img src="graphics/stocsb.gif" width="45" height="27" border="0" alt="TOC" /></a><a href="chap10.htm"><img src="graphics/sprevsb.gif" width="42" height="27" border="0" alt="PREV" /></a><a href="chap12.htm"><img src="graphics/snextsb.gif" width="42" height="27" border="0" alt="NEXT" /></a><a href="IX.htm"><img src="graphics/sindexsb.gif" width="45" height="27" border="0" alt="INDEX" /></a>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <img border="0" src="graphics/FLEXlm.gif">
+    </p>
+    <hr align="left" />
+
+    <blockquote>
+<a name="wp916236"> </a><h2 class="pNewHTMLPageNoRule">
+Appendix&#160;C
+</h2>
+
+<a name="wp916242"> </a><h2 class="pHeading1Rule">
+	Troubleshooting Guide
+</h2>
+<hr /><a name="wp896089"> </a><p class="pBody">
+This appendix documents areas of FLEX<em class="cEmphasis">lm</em> that have given customers difficulty in the past.
+</p>
+<a name="wp896091"> </a><h3 class="pHeading2">
+C.1	General Debugging Hints
+</h3>
+<a name="wp896092"> </a><p class="pBody">
+The following are tips for debugging:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp896093"> </a><div class="pSmartList1"><li>When you start the license server (<code class="cCode">lmgrd</code>) be sure that you direct the output into a local log file where you can examine it. The log file often contains useful information. Examine it when you have a problem, and be prepared to answer questions about it when you talk to a support person.</li></div>
+<a name="wp896094"> </a><div class="pSmartList1"><li>If the license server appears to have started correctly (which you can determine from the log file), try running <code class="cCode">lmstat -a</code> and <code class="cCode">lmdiag</code> to see if that program has the same problem as your application.</li></div>
+<a name="wp896100"> </a><div class="pSmartList1"><li>If your application is FLEX<em class="cEmphasis">lm</em> v4.1 or later (v5 or later on Windows), you can use the <code class="cCode">FLEXLM_DIAGNOSTICS</code> environment variable. Set <code class="cCode">FLEXLM_DIAGNOSTICS</code> to 1, 2, or 3. A setting of 3 gives more information than 2, 2 gives more information than 1 (in particular, the feature name that was denied). See <a  href="chap11.htm#wp896119">Section C.2, &#8220;FLEXLM_DIAGNOSTICS,&#8221;</a> for more information.</li></div>
+<a name="wp896101"> </a><div class="pSmartList1"><li>When you talk to a support person, be prepared with answers to the following questions:</li></div>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp896102"> </a><div class="pSmartList2"><li>What kind of machine is your license server running on? </li></div>
+<a name="wp916555"> </a><div class="pSmartList2"><li>What version of the operating system? </li></div>
+<a name="wp916556"> </a><div class="pSmartList2"><li>What machine and operating system is the application running on?</li></div>
+<a name="wp896106"> </a><div class="pSmartList2"><li>What version of FLEX<em class="cEmphasis">lm</em> does the FLEX<em class="cEmphasis">lm</em>-licensed application use? </li></div>
+<a name="wp916566"> </a><p class="pIndented3Relative">
+Use the <code class="cCode">lmver</code> script, or, on UNIX, execute the following command on your <code class="cCode">lmgrd</code>, vendor daemon, and application:
+</p>
+<a name="wp896107"> </a><p class="pIndented3CodeRelative">
+<code class="cCode">strings </code><code class="cCodeEmphasis">binary_name</code><code class="cCode"> | grep Copy</code>
+</p>
+<a name="wp896108"> </a><p class="pIndented3Relative">
+Alternatively, <code class="cCode">lmgrd -v</code> gives the <code class="cCode">lmgrd</code> version, and this works with the vendor daemon also.
+</p>
+<a name="wp896109"> </a><div class="pSmartList2"><li>What error or warning messages appear in the log file? </li></div>
+<a name="wp916576"> </a><div class="pSmartList2"><li>Did the server start correctly? </li></div>
+<a name="wp916577"> </a><p class="pIndented3Relative">
+Look for a message such as: 
+</p>
+<a name="wp896110"> </a><p class="pIndented3CodeRelative">
+<code class="cCode">server xyz started for: feature1 feature2</code>.
+</p>
+<a name="wp896111"> </a><div class="pSmartList2"><li>What is the output from running <code class="cCode">lmstat -a</code>?</li></div>
+<a name="wp896115"> </a><div class="pSmartList2"><li>Are you running other products which are also licensed by FLEX<em class="cEmphasis">lm</em>? </li></div>
+<a name="wp916587"> </a><div class="pSmartList2"><li>Are you using a combined license file or separate license files?</li></div>
+<a name="wp896116"> </a><div class="pSmartList2"><li>Are you using a three-server redundant license server (multiple SERVER lines in your license file)?</li></div>
+</ul></div>
+</ul></div>
+<a name="wp896119"> </a><h3 class="pHeading2">
+C.2	FLEXLM_DIAGNOSTICS
+</h3>
+<blockquote>
+<hr width=75% />
+<a name="wp896123"> </a><p class="pBodyNoteRelative">
+Note:	Available only with applications using FLEX<em class="cEmphasis">lm</em> v4.1 or higher for UNIX, and v5.0 or higher with Windows. Also, applications may choose not to provide this functionality.
+</p>
+<hr width=75% />
+</blockquote><a name="wp896124"> </a><p class="pBody">
+<code class="cCode">FLEXLM_DIAGNOSTICS</code> is an environment variable that causes the application to produce diagnostic information when a checkout is denied. The format of the diagnostic information may change over time.
+</p>
+<a name="wp896125"> </a><p class="pBody">
+To set <code class="cCode">FLEXLM_DIAGNOSTICS</code>, on UNIX:
+</p>
+<a name="wp896126"> </a><p class="pIndented2CodeRelative">
+(csh): setenv FLEXLM_DIAGNOSTICS 1<br />(sh): FLEXLM_DIAGNOSTICS=1; export FLEXLM_DIAGNOSTICS
+</p>
+<a name="wp896128"> </a><p class="pBody">
+On Windows 95/98/ME, add the following line to <code class="cCode">C:\autoexec.bat</code>:
+</p>
+<a name="wp896129"> </a><p class="pIndented2CodeRelative">
+SET FLEXLM_DIAGNOSTICS=1
+</p>
+<a name="wp896130"> </a><p class="pBody">
+On NT/2000/XP, use the System Control Panel applet to change the global environment, adding <code class="cCode">FLEXLM_DIAGNOSTICS</code> to 1.
+</p>
+<a name="wp896131"> </a><p class="pBody">
+On UNIX, the diagnostic output goes to stderr.
+</p>
+<a name="wp896132"> </a><p class="pBody">
+On Windows, if the application is v5.11 or higher, the output is a file in the current directory called <code class="cCode">flex</code><code class="cCodeEmphasis">pid</code><code class="cCode">.log</code>, where <code class="cCodeEmphasis">pid</code> is the application&#8217;s process ID. If the application is v5.0, the output file is called <code class="cCode">flex_err.log</code>.
+</p>
+<a name="wp896133"> </a><h4 class="pHeading3">
+C.2.1	Level 1 Content
+</h4>
+<a name="wp896137"> </a><p class="pBody">
+If <code class="cCode">FLEXLM_DIAGNOSTICS</code> is set to 1, then the standard FLEX<em class="cEmphasis">lm</em> error message is be presented, plus a complete list of license files that the application tried to use. For example:
+</p>
+<a name="wp896138"> </a><p class="pIndented1CodeRelative">
+setenv FLEXLM_DIAGNOSTICS 1<br />FLEXlm checkout error  : Cannot find license file (-1,73:2) No such file or directory<br />license file(s):  /usr/myproduct/licenses/testing.lic license.lic
+</p>
+<a name="wp896139"> </a><h4 class="pHeading3">
+C.2.2	Level 2 Content
+</h4>
+<a name="wp905913"> </a><p class="pBody">
+If <code class="cCode">FLEXLM_DIAGNOSTICS</code> is set to 2, then, in addition to level 1 output, the checkout arguments are presented. For example:
+</p>
+<a name="wp905914"> </a><p class="pIndented1CodeRelative">
+setenv FLEXLM_DIAGNOSTICS 2<br />FLEXlm checkout error  : No such feature exists (-5,116:2) No such file or directory<br />license file(s):  /usr/myproduct/licenses/testing.lic license.lic<br />lm_checkout(&quot;f1&quot;, 1.0, 1, 0x0, ..., 0x4000)
+</p>
+<a name="wp896142"> </a><p class="pBody">
+Note that the error message actually contains two separate problems, which both occurred during the checkout: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp896143"> </a><div class="pSmartList1"><li>There&#8217;s no such feature in the license it did find</li></div>
+<a name="wp896144"> </a><div class="pSmartList1"><li>It was unable to find the other license file, which is what produces the message &#8220;No such file or directory&#8221;</li></div>
+</ul></div>
+<a name="wp896145"> </a><p class="pBody">
+Following is a description of the arguments to <code class="cGUI">lm_checkout()</code>
+</p>
+<a name="wp896146"> </a><p class="pIndented2CodeRelative">
+lm_checkout(<code class="cCodeEmphasis">feature</code>, <code class="cCodeEmphasis">version</code>, <code class="cCodeEmphasis">num_lic</code>, <code class="cCodeEmphasis">queue_flag</code>, <code class="cCodeEmphasis">...</code>, <code class="cCodeEmphasis">dupgroup_mask</code>)
+</p>
+<a name="wp896147"> </a><p class="pBody">
+where:
+</p>
+<a name="wp896169"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896150"> </a><div class="pCellBody">
+<code style="font-style: italic; font-weight: normal; text-decoration: none; vertical-align: baseline" class="cCodeEmphasis">feature</code>
+</div>
+</td>
+    <td><a name="wp896152"> </a><div class="pCellBody">
+The requested feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896154"> </a><div class="pCellBody">
+<code class="cCodeEmphasis">version</code>
+</div>
+</td>
+    <td><a name="wp896156"> </a><div class="pCellBody">
+The requested version. The license file must contain a version &gt;= the requested version.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896158"> </a><div class="pCellBody">
+<code class="cCodeEmphasis">num_lic</code>
+</div>
+</td>
+    <td><a name="wp896160"> </a><div class="pCellBody">
+Number of licenses requested. Usually 1.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896162"> </a><div class="pCellBody">
+<code class="cCodeEmphasis">queue_flag</code>
+</div>
+</td>
+    <td><a name="wp896164"> </a><div class="pCellBody">
+If 0, no queueing<br />If 1, queue for license (&#8220;blocking&#8221; queue)<br />If 2, queue for licenses, but return to application (&#8220;non-blocking&#8221; queue)
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896166"> </a><div class="pCellBody">
+<code class="cCodeEmphasis">dupgroup_mask</code>
+</div>
+</td>
+    <td><a name="wp896168"> </a><div class="pCellBody">
+Indicates duplicate grouping, also called license sharing. User, host, and display are as shown by <code class="cCode">lmstat -a</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896170"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896174"> </a><h4 class="pHeading3">
+C.2.3	Level 3 Content (FLEX<em class="cEmphasis">lm</em> v6.0+ only)
+</h4>
+<a name="wp896175"> </a><p class="pBody">
+If <code class="cCode">FLEXLM_DIAGNOSTICS</code> is set to 3, then, in addition to level 1 and 2 output, if a checkout is successful, information is printed explaining how the license was granted:
+</p>
+<a name="wp896176"> </a><p class="pIndented2CodeRelative">
+setenv FLEXLM_DIAGNOSTICS 3<br /><code class="cCodeEmphasis">app<br /></code>Checkout succeeded: f0/14263EAEA8E0<br />License file: ./servtest.lic<br />No server used<br /><code class="cCodeEmphasis">app2<br /></code>Checkout succeeded: f1/BC64A7B120AE<br />License file: @localhost<br />License Server: @localhost<br /><code class="cCodeEmphasis">app3<br /></code>Checkout succeeded: f1/BC64A7B120AE<br />License file: servtest.lic<br />License Server: @speedy
+</p>
+<a name="wp896177"> </a><p class="pBody">
+Note that the feature name and license key are printed, along with the license file location (or host name if <code class="cCode">@</code><code class="cCodeEmphasis">host</code> were used) and host name of the server, where applicable.
+</p>
+<a name="wp896182"> </a><h3 class="pHeading2">
+C.3	FLEX<em class="cEmphasis">lm</em> Troubleshooting List
+</h3>
+<a name="wp896183"> </a><h4 class="pHeading3">
+C.3.1	Problem Description Format
+</h4>
+<a name="wp896184"> </a><p class="pBody">
+Each problem is presented in three parts:
+</p>
+<a name="wp896198"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896187"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896189"> </a><div class="pCellBody">
+<em class="cEmphasis">A description of the problem.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896191"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp896193"> </a><div class="pCellBody">
+A discussion of what causes the problem described in the &#8220;Symptom&#8221; section.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896195"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896197"> </a><div class="pCellBody">
+Instructions on how to solve the problem.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896199"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896200"> </a><p class="pBody">
+You can scan through the list of problems to find any which appear to relate to your concerns. In order to solve your problem, you may have to use all or some of the solutions listed here.
+</p>
+<a name="wp896201"> </a><h4 class="pHeading3">
+C.3.2	Hostid Problems
+</h4>
+<a name="wp896218"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896204"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896206"> </a><div class="pCellBody">
+<em class="cEmphasis">When I run the license manager on my machine, it tells me it is the wrong hostid.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896208"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp896210"> </a><div class="pCellBody">
+The vendor daemon checks the hostid listed on the SERVER line in the license file; if it does not match the hostid of the machine on which it is running, this message is printed. Possible causes include: 1) you are trying to run the license server on a different machine from the machine the file was made for; 2) the hostid of the machine you are running on changed (for example, the dongle hostid was moved (Windows) or the CPU board was replaced); 3) the hostid in the license file was modified.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896212"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896214"> </a><div class="pCellBody">
+Verify that the hostid of the machine on which the vendor daemon (or node-locked FLEX<em class="cEmphasis">lm</em>-licensed application) is being run matches the hostid specified in the license file (on the SERVER line for the vendor or on the FEATURE line for a node-locked FLEX<em class="cEmphasis">lm</em>-licensed application). You can run the <code class="cCode">lmhostid</code> utility to see what FLEX<em class="cEmphasis">lm</em> thinks the hostid is. You may not modify the hostid in the license file. If the hostid of your server machine changes, you must get a new license file from your software vendor.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896219"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896220"> </a><h4 class="pHeading3">
+C.3.3	Connection Problems
+</h4>
+<a name="wp896242"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896223"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896225"> </a><div class="pCellBody">
+<em class="cEmphasis">The </em>FLEX<em class="cEmphasis">lm</em>-licensed application<em class="cEmphasis"> (or </em><em class="cEmphasis">lmstat</em><em class="cEmphasis">) can&#8217;t connect to the server to check out a license.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896227"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp896232"> </a><div class="pCellBody">
+The FLEX<em class="cEmphasis">lm</em> routines in the application are unable to make a TCP connection to the server and TCP/IP port specified in the license file. Possible reasons for this are: 1) the wrong license file is being referenced by the FLEX<em class="cEmphasis">lm</em>-licensed application; 2) the server machine specified in the license file is down; 3) the vendor daemon specified in the license file is not running; 4) the host name in the license file is not recognized by the system; 5) the network between the machine running the FLEX<em class="cEmphasis">lm</em>-licensed application and the server machine is down; 6) You are mixing FLEX<em class="cEmphasis">lm</em> v1.5 (or earlier) and v2.1 (or later) vendor daemons in one license file and have run <code class="cCode">lmgrd</code> without the <code class="cCode">-b</code> command line option; 7) TCP is not running on your machine.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896237"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896241"> </a><div class="pCellBody">
+The <code class="cCode">lmdiag</code> utility is designed primarily to debug this problem, so first, try <code class="cCode">lmdiag</code>. Verify that the application is using the proper license file. Verify that specified server machine is up and reachable by executing another command that uses TCP, such as <code class="cCode">telnet</code>, from the FLEX<em class="cEmphasis">lm</em>-licensed application to the server. Verify that the vendor daemon is running (you can use <code class="cCode">ps</code> on the server to look for it). Examine the license log file to see if any problems are reported, particularly messages indicating that the vendor daemon has quit. Run <code class="cCode">lmstat -a</code> from the server machine to verify that the vendor daemon is alive. Run <code class="cCode">lmstat -a</code> from the machine running the FLEX<em class="cEmphasis">lm</em>-licensed application to verify the connection from it to vendor daemon across the network. Try using <code class="cCode">telnet </code><code class="cCodeEmphasis">host</code><code class="cCode"> </code><code class="cCodeEmphasis">port</code> where <code class="cCodeEmphasis">host</code> and <code class="cCodeEmphasis">port</code> are the same as on the SERVER line in your license file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896243"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896244"> </a><h4 class="pHeading3">
+C.3.4	Other FLEX<em class="cEmphasis">lm</em>-Licensed Application Problems
+</h4>
+<a name="wp896261"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896247"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896249"> </a><div class="pCellBody">
+<em class="cEmphasis">When I run my application </em>FLEX<em class="cEmphasis">lm-licensed application (or vendor daemon), I get the error </em><em class="cEmphasis">bad code</em><em class="cEmphasis"> or </em><em class="cEmphasis">inconsistent encryption code</em><em class="cEmphasis">.</em> 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896251"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp896253"> </a><div class="pCellBody">
+Possible causes for this are: 1) the license file was modified (either the hostid on a SERVER line or anything on the FEATURE line was changed); 2) the vendor used the wrong version of his license creation utility to generate your license file (or there is a bug in that process).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896255"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896257"> </a><div class="pCellBody">
+You may not modify the license file (except for specific fields, see <a  href="chap2.htm#wp916895">Chapter 2, &#8220;License File Basics&#8221;</a>). If you need to change something in your license file, you must get a new license file from your software vendor.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896262"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896276"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896265"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896267"> </a><div class="pCellBody">
+<em class="cEmphasis">When the second user tries to check out a license, the vendor daemon prints an error concerning </em><em class="cEmphasis">Parameter mismatch</em><em class="cEmphasis"> in the debug log file and refuses the license. The application may give the error  : </em><em class="cEmphasis">Duplicate selection mismatch for this feature.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896269"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp899079"> </a><div class="pCellBody">
+The most likely cause of this problem is that you are simultaneously trying to run two different versions of the FLEX<em class="cEmphasis">lm</em>-licensed application, and the software vendor has not specifically set up the new version for this kind of compatibility. Check the debug log file for a comm version mismatch warning message; this indicates that someone is running an older FLEX<em class="cEmphasis">lm</em>-licensed application than the license server daemon, <code class="cCode">lmgrd</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896273"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896275"> </a><div class="pCellBody">
+Run only the new version of the application (or only the old version) or get a copy of a v8.0+ vendor daemon.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896277"> </a><h4 class="pHeading3">
+C.3.5	Other Server Problems
+</h4>
+<a name="wp896291"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp906691"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp906693"> </a><div class="pCellBody">
+<em class="cEmphasis">I&#8217;m having trouble restarting my license servers on Solaris.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp906696"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp906698"> </a><div class="pCellBody">
+The default Solaris TCP/IP port delay of four minutes may cause problems when restarting a license server, especially a license server that is using a hard-coded TCP/IP port number (for example, each of the three-server redundant servers) rather than selecting from a set of default port numbers. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp906700"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp906802"> </a><div class="pCellBody">
+If you have a problem restarting license servers on Solaris, a root user can reset the TCP/IP port delay to 2.4 seconds (2400 milliseconds). As a long-term solution, it is recommended that one of the following lines be put in a boot script because the port delay is reset every time the machine reboots:
+</div>
+<a name="wp906803"> </a><div class="pCellBody">
+Solaris 2.6-:
+</div>
+<a name="wp906804"> </a><div class="pCellBodyCode">
+&#160;/usr/sbin/ndd -set /dev/tcp \<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tcp_close_wait_interval 2400
+</div>
+<a name="wp906805"> </a><div class="pCellBody">
+Solaris 2.7+:
+</div>
+<a name="wp906806"> </a><div class="pCellBodyCode">
+&#160;/usr/sbin/ndd -set /dev/tcp \<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tcp_time_wait_interval 2400
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896292"> </a><p class="pBodyRelative">
+
+</p>
+<a name="wp896324"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="1" cellpadding="10">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp896313"> </a><div class="pCellBody">
+<b class="cBold">Symptom:</b>
+</div>
+</td>
+    <td><a name="wp896315"> </a><div class="pCellBody">
+<em class="cEmphasis">The license server keeps reporting &#8220;lost lock&#8221; errors in the log file and exiting.</em>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896317"> </a><div class="pCellBody">
+Cause:
+</div>
+</td>
+    <td><a name="wp896319"> </a><div class="pCellBody">
+The lock file (normally placed in <code class="cCode">/usr/tmp</code> on UNIX (<code class="cCode">/var/tmp</code> in FLEX<em class="cEmphasis">lm</em> v8.1), <code class="cCode">C:\flexlm</code> on Windows NT/2000/XP) is being removed by someone else. There could be another daemon running, or the license administrator (or a script he set up) could have deleted the file.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp896321"> </a><div class="pCellBody">
+Solution:
+</div>
+</td>
+    <td><a name="wp896323"> </a><div class="pCellBody">
+Check to see if there is more than one copy of the daemon running. On UNIX use a command like <br /><code class="cCode">ps -aux | grep </code><code class="cCodeEmphasis">vendor</code> to search for it. Check for more than one <code class="cCode">lmgrd</code> running as well, since it restarts your vendor daemon when it is killed. If more than one <code class="cCode">lmgrd</code> is running, kill them all (using the <code class="cCode">kill</code> command, not <code class="cCode">kill -9</code>, on UNIX or LMTOOLS on Windows NT/2000/XP), then kill any remaining vendor daemons (on UNIX, try a simple <code class="cCode">kill</code>, if that fails then try <code class="cCode">kill -9</code> the <code class="cCode">lmgrd</code> and all vendor daemons) and start one fresh copy of <code class="cCode">lmgrd</code>. On UNIX, check to see if there is a shell script running that cleans out <code class="cCode">/tmp</code> (or <code class="cCode">/usr/tmp</code> or <code class="cCode">/var/tmp</code>). If so, try modifying it so that it does not delete zero-length files.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp896325"> </a><p class="pBodyRelative">
+
+</p>
+    </blockquote>
+
+    <hr />
+
+<table align="right" border="0" cellspacing="0" cellpadding="0">
+    <td align="right" width="200" height="85">
+    <map name="FPMap0">
+    <area href="http://www.macrovision.com" shape="rect" coords="4, 0, 199, 33">
+    <area href="http://www.macrovision.com" shape="rect" coords="1, 40, 199, 57"></map><img border="0" src="graphics/gsitoplogo.gif" usemap="#FPMap0" /></td>
+    <td align="right" width="200" height="85">
+    <map name="FPMap1">
+    <area href="mailto:support@macrovision.com" shape="rect" coords="9, 70, 151, 99"></map><img border="0" src="graphics/footerAddress.gif" usemap="#FPMap1" /></td>
+</table>
+ 
+    
+    <table width="174" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+<a href="TOC.htm"><img src="graphics/stocsb.gif" width="45" height="27" border="0" alt="TOC" /></a><a href="chap10.htm"><img src="graphics/sprevsb.gif" width="42" height="27" border="0" alt="PREV" /></a><a href="chap12.htm"><img src="graphics/snextsb.gif" width="42" height="27" border="0" alt="NEXT" /></a><a href="IX.htm"><img src="graphics/sindexsb.gif" width="45" height="27" border="0" alt="INDEX" /></a>
+        </td>
+      </tr>
+    </table>
+        
+ <p>&nbsp;</p>
+ 
+   
+      <table align="left">
+      <tr>
+        <td colspan="4" align=left>
+        <font face="Arial, Verdana, Helvetica, sans-serif" size="2"><i>
+        FLEXlm End Users 
+        Guide</i></font></tr>
+      <tr> 
+        <td colspan="4" align=left><em>
+        <font face="Arial, Verdana, Helvetica, sans-serif" size="2">March 2003</font></em></td>
+      </tr>
+    </table>
+   
+  </body>
+</html>

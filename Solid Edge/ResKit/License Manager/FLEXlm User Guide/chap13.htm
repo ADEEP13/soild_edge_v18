@@ -1,0 +1,273 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0" />
+    <meta name="TEMPLATEBASE" content="DTemplate" />
+    <title>Frequently Asked Questions</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body>
+
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    <table width="174" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+<a href="TOC.htm"><img src="graphics/stocsb.gif" width="45" height="27" border="0" alt="TOC" /></a><a href="chap12.htm"><img src="graphics/sprevsb.gif" width="42" height="27" border="0" alt="PREV" /></a><a href="chap14.htm"><img src="graphics/snextsb.gif" width="42" height="27" border="0" alt="NEXT" /></a><a href="IX.htm"><img src="graphics/sindexsb.gif" width="45" height="27" border="0" alt="INDEX" /></a>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <img border="0" src="graphics/FLEXlm.gif">
+    </p>
+    <hr align="left" />
+
+    <blockquote>
+<a name="wp896517"> </a><h2 class="pNewHTMLPageNoRule">
+Appendix&#160;E
+</h2>
+
+<a name="wp916062"> </a><h2 class="pHeading1Rule">
+	Frequently Asked Questions
+</h2>
+<hr /><a name="wp896520"> </a><h3 class="pHeading2">
+E.1	License File Questions
+</h3>
+<a name="wp896524"> </a><h4 class="pHeading3">
+E.1.1	I&#8217;ve received FLEX<em class="cEmphasis">lm</em> license files from two different companies. Do I have to combine them? 
+</h4>
+<a name="wp896525"> </a><p class="pBody">
+You don&#8217;t have to combine license files. Each license file that has any counted lines (the license count field is &gt; 0) requires a server. It&#8217;s perfectly OK to have any number of separate license files, with different <code class="cCode">lmgrd</code> server processes supporting each file. Moreover, since <code class="cCode">lmgrd</code> is a lightweight process, for sites without system administrators, this is often the simplest (and therefore recommended) way to proceed. With v6.0+ <code class="cCode">lmgrd</code>/<code class="cCode">lmdown</code>/<code class="cCode">lmreread</code>, you can restart/stop/reread a single vendor daemon (of any FLEX<em class="cEmphasis">lm</em> version). This makes combining licenses more attractive than previously. Also, if the application is v6.0+, using <code class="cCodeEmphasis">dir</code><code class="cCode">/*.lic</code> for license file management behaves like combining licenses without physically combining them.
+</p>
+<a name="wp896530"> </a><h4 class="pHeading3">
+E.1.2	When is it recommended to combine license files?
+</h4>
+<a name="wp896531"> </a><p class="pBody">
+Many system administrators, especially for larger sites, prefer to combine license files to ease administration of FLEX<em class="cEmphasis">lm</em> licenses. It&#8217;s purely a matter of preference. 
+</p>
+<a name="wp896547"> </a><h3 class="pHeading2">
+E.2	FLEX<em class="cEmphasis">lm</em> Versions
+</h3>
+<a name="wp896551"> </a><h4 class="pHeading3">
+E.2.1	I have products from several companies at various FLEX<em class="cEmphasis">lm</em> version levels. Do I have to worry about how these versions work together? 
+</h4>
+<a name="wp896552"> </a><p class="pBody">
+If you&#8217;re not combining license files from different vendors, the simplest thing to do is make sure you use the tools that are shipped by each vendor. 
+</p>
+<a name="wp896553"> </a><p class="pBody">
+<code class="cCode">lmgrd</code> always supports older versions of vendor daemons and applications, so it&#8217;s <span style="font-style: italic">always</span> safe to use the latest version of <code class="cCode">lmgrd</code> and the <code class="cCode">lmutil</code>/LMTOOLS utilities. If you&#8217;ve combined license files from two vendors, you<em class="cEmphasis"> must </em>use the latest version of <code class="cCode">lmgrd</code>.
+</p>
+<a name="wp896554"> </a><p class="pBody">
+If you&#8217;ve received two versions of a product from the same vendor, you <em class="cEmphasis">must</em> use the latest vendor daemon they send you. An older vendor daemon with a newer FLEX<em class="cEmphasis">lm</em>-licensed application causes communication errors.
+</p>
+<a name="wp896558"> </a><p class="pBody">
+Please ignore letters appended to FLEX<em class="cEmphasis">lm</em> versions, for example, the &#8220;d&#8221; in v2.4d. The appended letter indicates a patch, and does NOT indicate any compatibility differences. In particular, some elements of FLEX<em class="cEmphasis">lm</em> didn&#8217;t require certain patches, so a v2.4 <code class="cCode">lmgrd</code> works successfully with a v2.4b vendor daemon. See also <a  href="chap17.htm#wp916243">Section I.1, &#8220;Version Compatibility and Components.&#8221;</a>
+</p>
+<a name="wp896565"> </a><h4 class="pHeading3">
+E.2.2	I&#8217;ve received a new copy of a product from a vendor, and it uses a new version of FLEX<em class="cEmphasis">lm</em>. Is my old license file still valid?
+</h4>
+<a name="wp896572"> </a><p class="pBody">
+Yes. Older FLEX<em class="cEmphasis">lm</em> license files are always valid with newer versions of FLEX<em class="cEmphasis">lm</em>. 
+</p>
+<a name="wp896576"> </a><h4 class="pHeading3">
+E.2.3	I&#8217;ve received a new license file, and the format is different from the old one I had from the same vendor? Why? Are they compatible?
+</h4>
+<a name="wp916128"> </a><p class="pBody">
+As of v3.0, FLEX<em class="cEmphasis">lm</em> has an optional new format for license files. FLEX<em class="cEmphasis">lm</em> products always understand older versions; therefore, the pre-v3.0 files are understood by every FLEX<em class="cEmphasis">lm</em> version. However, your old applications (pre-FLEX<em class="cEmphasis">lm</em> v3.0) are not be able to use the new license file. See also <a  href="chap10.htm#wp916895">Appendix B, &#8220;License File Format.&#8221;</a>
+</p>
+<a name="wp916141"> </a><h3 class="pHeading2">
+E.3	Using FLEX<em class="cEmphasis">lm</em>
+</h3>
+<a name="wp896601"> </a><h4 class="pHeading3">
+E.3.1	Does FLEX<em class="cEmphasis">lm</em> work across the Internet?
+</h4>
+<a name="wp896602"> </a><p class="pBody">
+Yes. A server on the Internet serves licenses to anyone else on the Internet with access to those ports on that machine. This can be limited with the INTERNET= attribute on the FEATURE line, which limits access to a range of Internet addresses. You can also use the INCLUDE and EXCLUDE options in the daemon options file to allow (or deny) access to clients running on a range of Internet addresses.
+</p>
+<a name="wp896607"> </a><h4 class="pHeading3">
+E.3.2	Does FLEX<em class="cEmphasis">lm</em> work with Internet firewalls?
+</h4>
+<a name="wp896611"> </a><p class="pBody">
+Many firewalls require that TCP/IP port numbers be specified to the firewall. FLEX<em class="cEmphasis">lm</em> v5 <code class="cCode">lmgrd</code> and vendor daemons supports this.
+</p>
+<a name="wp896612"> </a><h4 class="pHeading3">
+E.3.3	If my FLEX<em class="cEmphasis">lm</em>-licensed application dies, does the server free the license? 
+</h4>
+<a name="wp896613"> </a><p class="pBody">
+Yes, unless the FLEX<em class="cEmphasis">lm</em>-licensed application&#8217;s whole system crashes, or becomes disconnected from the network. Assuming communications is TCP, the license is automatically freed immediately. If communications are UDP, then the license is freed after the UDP timeout, which is set by each vendor, but defaults to 45 minutes. UDP communications is normally only set by the end user, so TCP is assumed. If the whole system crashes, then the license is not freed; use <code class="cCode">lmremove</code> to free the license.
+</p>
+<a name="wp896614"> </a><h4 class="pHeading3">
+E.3.4	What happens when the license server dies? 
+</h4>
+<a name="wp896618"> </a><p class="pBody">
+FLEX<em class="cEmphasis">lm</em> applications send periodic heartbeats to the server to discover if it has died. What happens when the server dies is then up to the application: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp916238"> </a><div class="pSmartList1"><li>Continue periodic attempts to re-checkout the license when the server comes back up. </li></div>
+<a name="wp916242"> </a><div class="pSmartList1"><li>Attempt to re-checkout a license a few times, and then, presumably with some warning, exit. </li></div>
+<a name="wp916243"> </a><div class="pSmartList1"><li>In the case of GUI applications, present pop-ups to the user periodically letting them know the server is down and needs to be restarted.</li></div>
+</ul></div>
+<a name="wp896619"> </a><h4 class="pHeading3">
+E.3.5	How do you tell if a TCP/IP port is already in use? 
+</h4>
+<a name="wp896621"> </a><p class="pBody">
+99.44% of the time, if it&#8217;s in use, it&#8217;s because <code class="cCode">lmgrd</code> is already running on the TCP/IP port&#8212;or was recently killed, and the port isn&#8217;t freed yet. Assuming this is not the case, then use <code class="cCode">telnet </code><code class="cCodeEmphasis">host</code><code class="cCode"> </code><code class="cCodeEmphasis">port</code>&#8212; if it says &#8220;Can&#8217;t connect,&#8221; it&#8217;s a free port. 
+</p>
+<a name="wp896625"> </a><h4 class="pHeading3">
+E.3.6	Does FLEX<em class="cEmphasis">lm</em> require root permissions?
+</h4>
+<a name="wp896630"> </a><p class="pBody">
+No. There is no part of FLEX<em class="cEmphasis">lm</em>, <code class="cCode">lmgrd</code>, vendor daemon, or application, that requires root permissions. In fact, it is <em style="font-style: normal" class="cEmphasis">recommended</em> that you do not run the license server (<code class="cCode">lmgrd</code>) as &#8220;root,&#8221; since root processes can introduce security risks. If <code class="cCode">lmgrd</code> must be started from the root user (for example, in a system boot script), it is recommended that you use the <code class="cCode">su</code> command to run <code class="cCode">lmgrd</code> as a non-privileged user:
+</p>
+<a name="wp896631"> </a><p class="pIndented1CodeRelative">
+su <code class="cCodeEmphasis">username</code> -c &quot;<code class="cCodeEmphasis">lmgrd_path</code> -c <code class="cCodeEmphasis">license_file_path</code> -l <code class="cCodeEmphasis">debug_log_path</code>&quot;
+</p>
+<a name="wp896632"> </a><p class="pBody">
+where <code class="cCodeEmphasis">username</code> is a non-privileged user, and the paths are the correct paths to <code class="cCode">lmgrd</code>, the license file, and the debug log file. You must ensure that the vendor daemons listed in the license file have execute permissions for <code class="cCodeEmphasis">username</code>. The paths to all the vendor daemons in the license file are listed on each VENDOR line.
+</p>
+<a name="wp896635"> </a><h4 class="pHeading3">
+E.3.7	Is it OK to run lmgrd as &#8220;root&#8221; (UNIX only)?
+</h4>
+<a name="wp896636"> </a><p class="pBody">
+It is not prudent to run any command, particularly a daemon, as root on UNIX, as it may pose a security risk to the operating system. Therefore, it is recommended that <code class="cCode">lmgrd</code> be run as a non-privileged user (not &#8220;root&#8221;). For example, if you are starting <code class="cCode">lmgrd</code> from a boot script, use: 
+</p>
+<a name="wp896637"> </a><p class="pIndented2CodeRelative">
+su <code class="cCodeEmphasis">username</code> -c &quot;umask 022; lmgrd...&quot;
+</p>
+<a name="wp896638"> </a><p class="pBody">
+to run <code class="cCode">lmgrd</code> as a non-privileged user.
+</p>
+<a name="wp896643"> </a><h4 class="pHeading3">
+E.3.8	Does FLEX<em style="font-style: italic" class="cEmphasis">lm</em><span style="font-style: italic"> </span>licensing impose a heavy load on the network? 
+</h4>
+<a name="wp896644"> </a><p class="pBody">
+No, but partly this depends on the application, and end user&#8217;s use. A typical checkout request requires five messages and responses between the FLEX<em class="cEmphasis">lm</em>-licensed application and server, and each message is &lt;150 bytes. 
+</p>
+<a name="wp896645"> </a><p class="pBody">
+When a server is not receiving requests, it requires virtually no CPU time. 
+</p>
+<a name="wp896646"> </a><p class="pBody">
+When an application, or <code class="cCode">lmstat</code>, requests the list of current users, this can significantly increase the amount of networking FLEX<em class="cEmphasis">lm</em> uses, depending on the number of current users. 
+</p>
+<a name="wp896653"> </a><p class="pBody">
+Also, prior to FLEX<em class="cEmphasis">lm</em> v5, use of <code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> can increase network load, since the license file is downloaded from the server to the system running the FLEX<em class="cEmphasis">lm</em>-licensed application. For pre-v5 FLEX<em class="cEmphasis">lm</em>, it is recommended that <code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> be limited to small license files (say, &lt;50 features). In v5+, <code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> actually <em class="cEmphasis">improves</em> performance.
+</p>
+<a name="wp896658"> </a><h4 class="pHeading3">
+E.3.9	Does FLEX<em class="cEmphasis">lm</em> work with NFS?
+</h4>
+<a name="wp896665"> </a><p class="pBody">
+Yes. FLEX<em class="cEmphasis">lm</em> has no direct interaction with NFS. FLEX<em class="cEmphasis">lm</em> uses an NFS-mounted file like any other application. 
+</p>
+<a name="wp896671"> </a><h4 class="pHeading3">
+E.3.10	Does FLEX<em class="cEmphasis">lm</em> work with ATM, ISDN, Token-Ring, etc.
+</h4>
+<a name="wp896678"> </a><p class="pBody">
+In general, these have no impact on FLEX<em class="cEmphasis">lm</em>. FLEX<em class="cEmphasis">lm</em> requires TCP/IP. So long as TCP/IP works, FLEX<em class="cEmphasis">lm</em> works.
+</p>
+<a name="wp896686"> </a><h4 class="pHeading3">
+E.3.11	Does FLEX<em class="cEmphasis">lm</em> work with subnets, fully qualified names, multiple domains, etc.?
+</h4>
+<a name="wp896688"> </a><p class="pBody">
+Yes, although this behavior was improved in v3.0, and v6.0.
+</p>
+<a name="wp896689"> </a><p class="pBody">
+When a license server and a FLEX<em class="cEmphasis">lm</em>-licensed application are located in different domains, fully qualified host names have to be used. A &#8220;fully qualified host name&#8221; is of the form <code class="cCodeEmphasis">machine</code><code class="cCode">.</code><code class="cCodeEmphasis">domain</code>, where <code class="cCodeEmphasis">machine</code> is the local host name (usually returned by the <code class="cCode">hostname</code> command or <code class="cCode">uname -n</code>) and <code class="cCodeEmphasis">domain</code> is the Internet domain name, e.g., &#8220;globes.com.&#8221;
+</p>
+<a name="wp896693"> </a><p class="pBody">
+To ensure success with FLEX<em class="cEmphasis">lm</em> across domains, do the following: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp896694"> </a><div class="pSmartList1"><li>Make the sure the fully qualified host name is the name on the SERVER line of the license file. </li></div>
+<a name="wp896695"> </a><div class="pSmartList1"><li>Make sure ALL FLEX<em class="cEmphasis">lm</em>-licensed application machines, as well as the server machine, are able to <code class="cCode">telnet</code> to that fully qualified host name. For example, if the host is locally called &#8220;speedy,&#8221; and the domain name is &#8220;corp.com,&#8221; local systems are able to logon to &#8220;speedy&#8221; via <code class="cCode">telnet speedy</code>. But very often the fully qualified host name, <code class="cCode">telnet speedy.corp.com,</code> fails locally. Note that this <code class="cCode">telnet</code> command always succeeds on hosts in other domains (assuming everything is configured correctly), since the network resolves &#8220;speedy.corp.com&#8221; automatically. </li></div>
+<a name="wp896696"> </a><div class="pSmartList1"><li>Finally, there must be an alias for &#8220;speedy&#8221; so it&#8217;s also known locally as &#8220;speedy.corp.com.&#8221; This alias is added to the <code class="cCode">/etc/hosts</code> file, or if NIS/Yellow Pages are being used, then it has to be added to the NIS database. This requirement goes away in version 3.0 of FLEX<em class="cEmphasis">lm</em>.</li></div>
+</ol></div>
+<a name="wp896701"> </a><p class="pBody">
+If all components (application, <code class="cCode">lmgrd</code> and vendor daemon) are v6.0 or higher, no aliases are required; the only requirement is that the fully qualified domain name, or IP address, is used as a host name on the SERVER, or as a host name in the <code class="cCode">LM_LICENSE_FILE</code> environment variable (<code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> or <code class="cCode">@</code><code class="cCodeEmphasis">host</code>).
+</p>
+<a name="wp896710"> </a><h4 class="pHeading3">
+E.3.12	Does FLEX<em class="cEmphasis">lm</em> work with NIS and DNS?
+</h4>
+<a name="wp896714"> </a><p class="pBody">
+Yes. However, some sites have broken NIS or DNS, which causes FLEX<em class="cEmphasis">lm</em> to fail. In v5 of FLEX<em class="cEmphasis">lm</em>, NIS and DNS can be avoided to solve this problem. In particular, sometimes DNS is configured for a server that&#8217;s not currently available (e.g., a dial-up connection from a Windows system). Again, if DNS is configured, but the server is not available, FLEX<em class="cEmphasis">lm</em> fails.
+</p>
+<a name="wp896721"> </a><p class="pBody">
+On Windows, if a checkout seems to take three minutes and then fails, this is usually because the system is configured for a dial-up DNS server which is not currently available. The solution here is to turn off DNS.
+</p>
+<a name="wp916311"> </a><p class="pBody">
+Finally, host names must not have periods in the name. These are not legal host names, and they do not work with DNS; although, Windows systems allow you to define them.
+</p>
+<a name="wp916316"> </a><h4 class="pHeading3">
+E.3.13	We are using FLEX<em class="cEmphasis">lm</em> over a wide-area network. What can we do to improve performance? 
+</h4>
+<a name="wp896731"> </a><p class="pBody">
+With the most common uses of FLEX<em class="cEmphasis">lm</em>, traffic is negligible. In particular, checkout, checkin, and heartbeats use very little networking traffic. There are two items, however, which can send considerably more data:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp896735"> </a><div class="pSmartList1"><li><code class="cCode">lmstat -a</code> </li></div>
+<a name="wp916351"> </a><p class="pIndented2Relative">
+Use sparingly. Network traffic increases as the amount of concurrent users and features increases. As a rule of thumb, avoid using this command when there are more than 20 concurrent users or features.
+</p>
+<a name="wp896742"> </a><div class="pSmartList1"><li>Prior to FLEX<em class="cEmphasis">lm</em> v5, the <code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> mode of the <code class="cCode">LM_LICENSE_FILE</code> environment variable should be avoided, especially when the license file has many features, or there are a lot of license files included in <code class="cCode">LM_LICENSE_FILE</code>. The license file information is sent via the network, and can place a heavy load. Failures due to <code class="cCodeEmphasis">port</code><code class="cCode">@</code><code class="cCodeEmphasis">host</code> generate the error <code class="cCode">LM_SERVNOREADLIC (-61)</code>. </li></div>
+</ul></div>
+<a name="wp896747"> </a><h3 class="pHeading2">
+E.4	Windows Questions
+</h3>
+<a name="wp896748"> </a><h4 class="pHeading3">
+E.4.1	What Windows Platforms are supported?
+</h4>
+<a name="wp896752"> </a><p class="pBody">
+FLEX<em class="cEmphasis">lm</em> v9.0 supports Windows 95/98/98SE, NT, NT Server, 2000, ME, and XP.
+</p>
+<a name="wp896755"> </a><h4 class="pHeading3">
+E.4.2	Will the Server run on Windows 95?
+</h4>
+<a name="wp896756"> </a><p class="pBody">
+Yes. 
+</p>
+    </blockquote>
+
+    <hr />
+
+<table align="right" border="0" cellspacing="0" cellpadding="0">
+    <td align="right" width="200" height="85">
+    <map name="FPMap0">
+    <area href="http://www.macrovision.com" shape="rect" coords="4, 0, 199, 33">
+    <area href="http://www.macrovision.com" shape="rect" coords="1, 40, 199, 57"></map><img border="0" src="graphics/gsitoplogo.gif" usemap="#FPMap0" /></td>
+    <td align="right" width="200" height="85">
+    <map name="FPMap1">
+    <area href="mailto:support@macrovision.com" shape="rect" coords="9, 70, 151, 99"></map><img border="0" src="graphics/footerAddress.gif" usemap="#FPMap1" /></td>
+</table>
+ 
+    
+    <table width="174" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+<a href="TOC.htm"><img src="graphics/stocsb.gif" width="45" height="27" border="0" alt="TOC" /></a><a href="chap12.htm"><img src="graphics/sprevsb.gif" width="42" height="27" border="0" alt="PREV" /></a><a href="chap14.htm"><img src="graphics/snextsb.gif" width="42" height="27" border="0" alt="NEXT" /></a><a href="IX.htm"><img src="graphics/sindexsb.gif" width="45" height="27" border="0" alt="INDEX" /></a>
+        </td>
+      </tr>
+    </table>
+        
+ <p>&nbsp;</p>
+ 
+   
+      <table align="left">
+      <tr>
+        <td colspan="4" align=left>
+        <font face="Arial, Verdana, Helvetica, sans-serif" size="2"><i>
+        FLEXlm End Users 
+        Guide</i></font></tr>
+      <tr> 
+        <td colspan="4" align=left><em>
+        <font face="Arial, Verdana, Helvetica, sans-serif" size="2">March 2003</font></em></td>
+      </tr>
+    </table>
+   
+  </body>
+</html>
